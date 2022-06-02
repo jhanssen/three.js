@@ -30,8 +30,8 @@ class WebGPUTextureUtils {
 
 		const mipmapVertexSource = `
 struct VarysStruct {
-	@builtin( position ) Position: vec4<f32>,
-	@location( 0 ) vTex : vec2<f32>
+        @builtin( position ) Position: vec4<f32>;
+        @location( 0 ) vTex : vec2<f32>;
 };
 
 @stage( vertex )
@@ -97,22 +97,21 @@ fn main( @location( 0 ) vTex : vec2<f32> ) -> @location( 0 ) vec4<f32> {
 
 		if ( pipeline === undefined ) {
 
-			pipeline = this.device.createRenderPipeline( {
-				vertex: {
-					module: this.mipmapVertexShaderModule,
-					entryPoint: 'main'
-				},
-				fragment: {
-					module: this.mipmapFragmentShaderModule,
-					entryPoint: 'main',
-					targets: [ { format } ]
-				},
-				primitive: {
-					topology: GPUPrimitiveTopology.TriangleStrip,
-					stripIndexFormat: GPUIndexFormat.Uint32
-				},
-				layout: 'auto'
-			} );
+                        pipeline = this.device.createRenderPipeline( {
+                                vertex: {
+                                        module: this.mipmapVertexShaderModule,
+                                        entryPoint: 'main'
+                                },
+                                fragment: {
+                                        module: this.mipmapFragmentShaderModule,
+                                        entryPoint: 'main',
+                                        targets: [ { format } ]
+                                },
+                                primitive: {
+                                        topology: GPUPrimitiveTopology.TriangleStrip,
+                                        stripIndexFormat: GPUIndexFormat.Uint32
+                                }
+                        } );
 
 			this.pipelines[ format ] = pipeline;
 
@@ -148,10 +147,9 @@ fn main( @location( 0 ) vTex : vec2<f32> ) -> @location( 0 ) vec4<f32> {
 			const passEncoder = commandEncoder.beginRenderPass( {
 				colorAttachments: [ {
 					view: dstView,
-					loadOp: GPULoadOp.Clear,
+                                        loadValue: [ 0, 0, 0, 0 ],
 					storeOp: GPUStoreOp.Store,
-					clearValue: [ 0, 0, 0, 0 ]
-				} ]
+                                } ]
 			} );
 
 			const bindGroup = this.device.createBindGroup( {
@@ -168,7 +166,7 @@ fn main( @location( 0 ) vTex : vec2<f32> ) -> @location( 0 ) vec4<f32> {
 			passEncoder.setPipeline( pipeline );
 			passEncoder.setBindGroup( 0, bindGroup );
 			passEncoder.draw( 4, 1, 0, 0 );
-			passEncoder.end();
+                        passEncoder.endPass();
 
 			srcView = dstView;
 

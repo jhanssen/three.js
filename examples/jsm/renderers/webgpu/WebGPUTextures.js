@@ -375,7 +375,8 @@ class WebGPUTextures {
 
 				this._getImageBitmap( image, texture ).then( imageBitmap => {
 
-					this._copyExternalImageToTexture( imageBitmap, textureGPU );
+                                    this._copyBufferToTexture( imageBitmap, format, textureGPU );
+                                        // this._copyExternalImageToTexture( imageBitmap, textureGPU );
 
 					if ( needsMipmaps === true ) this._generateMipmaps( textureGPU, textureGPUDescriptor );
 
@@ -436,7 +437,8 @@ class WebGPUTextures {
 
 				this._getImageBitmap( image, texture ).then( imageBitmap => {
 
-					this._copyExternalImageToTexture( imageBitmap, textureGPU, { z : i } );
+                                    this._copyBufferToTexture( imageBitmap, format, textureGPU, { z : i } );
+                                    // this._copyExternalImageToTexture( imageBitmap, textureGPU, { z : i } );
 
 					if ( needsMipmaps === true ) this._generateMipmaps( textureGPU, textureGPUDescriptor, i );
 
