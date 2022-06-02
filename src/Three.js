@@ -157,7 +157,11 @@ export { WebGPURenderer } from '../examples/jsm/renderers/webgpu/WebGPURenderer.
 export { WebGPU } from '../examples/jsm/capabilities/WebGPU.js';
 export { GLTFLoader } from '../examples/jsm/loaders/GLTFLoader.js';
 export { RGBMLoader } from '../examples/jsm/loaders/RGBMLoader.js';
+export { FBXLoader } from '../examples/jsm/loaders/FBXLoader.js';
 export { OrbitControls } from '../examples/jsm/controls/OrbitControls.js';
+export { RoomEnvironment } from '../examples/jsm/environments/RoomEnvironment.js';
+export { VertexNormalsHelper } from '../examples/jsm/helpers/VertexNormalsHelper.js';
+export { VertexTangentsHelper } from '../examples/jsm/helpers/VertexTangentsHelper.js';
 export * as Nodes from '../examples/jsm/nodes/Nodes.js';
 export * from './constants.js';
 export * from './Three.Legacy.js';

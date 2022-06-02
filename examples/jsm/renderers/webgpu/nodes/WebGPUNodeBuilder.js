@@ -783,7 +783,7 @@ fn main( ${shaderData.attributes} ) {
 
 		return `
 struct ${name} {
-${vars.split(",").join(";")};
+${vars.split(",\n").join(";\n")};
 };`;
 
 	}
