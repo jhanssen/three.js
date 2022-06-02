@@ -328,7 +328,7 @@ class WebGPURenderer {
 
 		// finish render pass
 
-		passEncoder.end();
+                passEncoder.endPass();
 		device.queue.submit( [ cmdEncoder.finish() ] );
 
 	}
@@ -981,4 +981,4 @@ class WebGPURenderer {
 
 }
 
-export default WebGPURenderer;
+export { WebGPURenderer };

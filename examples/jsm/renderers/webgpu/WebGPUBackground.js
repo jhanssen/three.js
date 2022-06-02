@@ -59,43 +59,40 @@ class WebGPUBackground {
 
 				_clearColor.multiplyScalar( _clearAlpha );
 
-				colorAttachment.clearValue = { r: _clearColor.r, g: _clearColor.g, b: _clearColor.b, a: _clearAlpha };
-				colorAttachment.loadOp = GPULoadOp.Clear;
+                                colorAttachment.loadValue = { r: _clearColor.r, g: _clearColor.g, b: _clearColor.b, a: _clearAlpha };
 				colorAttachment.storeOp = GPUStoreOp.Store;
 
 			} else {
 
-				colorAttachment.loadOp = GPULoadOp.Load;
+                                colorAttachment.loadValue = GPULoadOp.Load;
 
 			}
 
 			if ( renderer.autoClearDepth === true ) {
 
-				depthStencilAttachment.depthClearValue = renderer._clearDepth;
-				depthStencilAttachment.depthLoadOp = GPULoadOp.Clear;
+                                depthStencilAttachment.depthLoadValue = renderer._clearDepth;
 
 			} else {
 
-				depthStencilAttachment.depthLoadOp = GPULoadOp.Load;
+                                depthStencilAttachment.depthLoadValue = GPULoadOp.Load;
 
 			}
 
 			if ( renderer.autoClearStencil === true ) {
 
-				depthStencilAttachment.stencilClearValue = renderer._clearStencil;
-				depthStencilAttachment.stencilLoadOp = GPULoadOp.Clear;
+                                depthStencilAttachment.stencilLoadValue = renderer._clearStencil;
 
 			} else {
 
-				depthStencilAttachment.stencilLoadOp = GPULoadOp.Load;
+                                depthStencilAttachment.stencilLoadValue = GPULoadOp.Load;
 
 			}
 
 		} else {
 
-			colorAttachment.loadOp = GPULoadOp.Load;
-			depthStencilAttachment.depthLoadOp = GPULoadOp.Load;
-			depthStencilAttachment.stencilLoadOp = GPULoadOp.Load;
+                        colorAttachment.loadValue = GPULoadOp.Load;
+                        depthStencilAttachment.depthLoadValue = GPULoadOp.Load;
+                        depthStencilAttachment.stencilLoadValue = GPULoadOp.Load;
 
 		}
 

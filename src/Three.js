@@ -153,6 +153,9 @@ export { ImageUtils } from './extras/ImageUtils.js';
 export { ShapeUtils } from './extras/ShapeUtils.js';
 export { PMREMGenerator } from './extras/PMREMGenerator.js';
 export { WebGLUtils } from './renderers/webgl/WebGLUtils.js';
+export { WebGPURenderer } from '../examples/jsm/renderers/webgpu/WebGPURenderer.js';
+export { WebGPU } from '../examples/jsm/capabilities/WebGPU.js';
+export * as Nodes from '../examples/jsm/nodes/Nodes.js';
 export * from './constants.js';
 export * from './Three.Legacy.js';
 

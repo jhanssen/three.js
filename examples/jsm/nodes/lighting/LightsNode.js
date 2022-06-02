@@ -94,7 +94,8 @@ class LightsNode extends Node {
 				const lightClass = light.constructor;
 				const lightNodeClass = references.has( lightClass ) ? references.get( lightClass ) : LightingNode;
 
-				lightNode = new lightNodeClass( light );
+                            lightNode = new lightNodeClass( light );
+                            lightNode.light = light;
 
 			}
 

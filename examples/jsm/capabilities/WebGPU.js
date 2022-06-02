@@ -1,4 +1,4 @@
-if ( window.GPUShaderStage === undefined ) {
+if ( globalThis.window && window.GPUShaderStage === undefined ) {
 
 	window.GPUShaderStage = { VERTEX: 1, FRAGMENT: 2, COMPUTE: 4 };
 
@@ -36,4 +36,4 @@ class WebGPU {
 
 }
 
-export default WebGPU;
+export { WebGPU };

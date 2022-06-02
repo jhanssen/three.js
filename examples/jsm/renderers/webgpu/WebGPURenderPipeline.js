@@ -114,9 +114,8 @@ class WebGPURenderPipeline {
 			},
 			multisample: {
 				count: this._sampleCount
-			},
-			layout: 'auto'
-		} );
+                        }
+                } );
 
 	}
 
